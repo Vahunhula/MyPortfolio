@@ -1,4 +1,5 @@
-import { FaLinkedin, FaGithub, FaFileAlt } from "react-icons/fa"; // Changed PDF icon to File icon
+import { FaLinkedin, FaGithub, FaFileAlt } from "react-icons/fa";
+import Image from "next/image"; // Use Next.js optimized Image component
 
 export default function Hero() {
   return (
@@ -8,9 +9,11 @@ export default function Hero() {
         {/* Left Side - Profile Image & Social Links */}
         <div className="flex flex-col items-center">
           <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-gray-700 shadow-lg">
-            <img 
-              src="Profile.png" // Replace this with your image path
-              alt="Vakhtangi Sheklashvili"
+            <Image 
+              src="/Profile.png" // Ensure the correct path (public/Profile.png)
+              alt="Vakhtangi Sheklashvili's Profile Picture"
+              width={256} 
+              height={256}
               className="w-full h-full object-cover"
             />
           </div>
@@ -21,6 +24,7 @@ export default function Hero() {
               href="https://www.linkedin.com/in/vakhtangi-sheklashvili-3606a12b8/" 
               target="_blank" 
               rel="noopener noreferrer"
+              aria-label="LinkedIn Profile"
               className="bg-blue-600 text-white p-3 rounded-full text-2xl shadow-lg 
               transition-all duration-300 transform hover:scale-110 hover:bg-blue-700"
             >
@@ -30,42 +34,37 @@ export default function Hero() {
               href="https://github.com/Vahunhula" 
               target="_blank" 
               rel="noopener noreferrer"
+              aria-label="GitHub Profile"
               className="bg-gray-800 text-white p-3 rounded-full text-2xl shadow-lg 
               transition-all duration-300 transform hover:scale-110 hover:bg-gray-900"
             >
               <FaGithub />
             </a>
             <a 
-              href="cv.pdf" // Replace with your actual CV link
+              href="/cv.pdf" // Ensure cv.pdf is inside the 'public' folder
               target="_blank" 
               rel="noopener noreferrer"
+              aria-label="Download CV"
               className="bg-green-600 text-white p-3 rounded-full text-2xl shadow-lg 
               transition-all duration-300 transform hover:scale-110 hover:bg-green-700"
             >
-              <FaFileAlt /> {/* This is the new file icon */}
+              <FaFileAlt />
             </a>
           </div>
         </div>
 
         {/* Right Side - Text */}
         <div className="text-center md:text-left md:ml-12">
-          <h1 
-            className="text-4xl md:text-6xl font-extrabold mb-4"
-            style={{ fontFamily: 'Tektur, sans-serif' }}
-          >
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-4 font-tektur">
             WELCOME TO <br /> <span className="text-blue-500">MY PORTFOLIO</span>
           </h1>
-          <p 
-            className="text-lg text-gray-300 mb-6 max-w-md"
-            style={{ fontFamily: 'Tektur, sans-serif' }}
-          >
+          <p className="text-lg text-gray-300 mb-6 max-w-md font-tektur">
             Discover my creative work and projects that define my journey.
           </p>
           <a
             href="#projects"
             className="bg-blue-500 text-white px-6 py-3 rounded-lg text-lg font-semibold shadow-md 
-            hover:bg-blue-600 hover:scale-105 transition-all duration-300"
-            style={{ fontFamily: 'Tektur, sans-serif' }}
+            hover:bg-blue-600 hover:scale-105 transition-all duration-300 font-tektur"
           >
             View My Work
           </a>
